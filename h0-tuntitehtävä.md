@@ -6,7 +6,7 @@ teksti
 
 ## otsikko2
 
-URLs are rendered automatically, like http://google.com
+Url http://google.com
 
 Koodi tabilla tai 4 spacella
 
