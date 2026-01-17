@@ -27,7 +27,7 @@ Aloitin lataamalla omaan käyttöympäristööni sopivan Virtualboxin (macOS / I
 ## Debianin lataaminen
 
 Latasin Linuxin, tässä tapauksessa Debian 13 trixien ISO-tiedoston osoitteesta
-https://www.debian.org/CD/live/. Tein ennen tätä virheen, kun latasin Debianin ei-live version, mikä aiheutti ongelmia myöhemmin Debianin asennusvaiheessa ennen kuin huomasin virheeni. Alla olevassa on kuvassa on ylempänä väärä ja alempana oikea (live) lataus.
+https://www.debian.org/CD/live/. Tein tässä kohtaan virheen, kun latasin Debianin ei-live version, mikä aiheutti ongelmia myöhemmin Debianin asennusvaiheessa. Alla olevassa on kuvassa on ylempänä väärä ja alempana oikea (live) lataus. Oikea paikka ladata tiedosto on siis https://www.debian.org/CD/live/.
 
 ![debian erot](kuvia/debianvertailu.jpg)
 
@@ -92,11 +92,12 @@ Asennuksen jälkeen käytössäni oli toimiva Linux käyttöjärjestelmä.
 
 
 ### Lähteet: 
-<br>
 
 https://www.virtualbox.org/wiki/Downloads
 
 https://www.debian.org/download
+
+https://www.debian.org/CD/live/
 
 https://terokarvinen.com/2021/install-debian-on-virtualbox/
 
