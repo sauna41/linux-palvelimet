@@ -92,10 +92,17 @@ Asennuksen jälkeen käytössäni oli toimiva Linux käyttöjärjestelmä.
 
 
 ### Lähteet: 
+<br>
+
 https://www.virtualbox.org/wiki/Downloads
+
 https://www.debian.org/download
+
 https://terokarvinen.com/2021/install-debian-on-virtualbox/
+
 https://terokarvinen.com/2006/raportin-kirjoittaminen-4/
+
 https://terokarvinen.com/linux-palvelimet/
+
 https://github.com/johannaheinonen/johanna-test-repo/blob/main/linux-20082025.md
 
