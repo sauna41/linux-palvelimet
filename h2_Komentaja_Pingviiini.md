@@ -57,17 +57,44 @@ Paneelit saadaan käyttöön _mc_ -komennolla
 
 
 
-### FHS. Esittele kansiot, jotka on listattu "Command Line Basics Revisited" kappaleessa "Important directories". 
+### Tärkeitä kansioita
 
-/
+/ -kansio on juurihakemisto (root). Se on kaikkien tiedostojenn alkupiste, jonka alta kaikki muu löytyy. 
+
+![root](kuvia/:_kansio.png)
+
+
+
 /home/
-/home/henri/
+Käyttäjien kotihakemistoalue. Kaikkien tietokoneen yksittäisten käyttäjien omat hakemistot löytyvät täältä.
+
+![home](kuvia/home_kansio.png)
+
+
+/home/user/
+
+Yksittäisen käyttäjän kotihakemisto. Sisältää esimerkiksi käyttäjäkohtaiset tiedostot ja asetukset.
+
+![user](kuvia/home:user_kansio.png)
+
 /etc/
+
+Järjestelmän asetustiedostot. Muokkaus vaatii pääsääntöisesti sudo -oikeuksia.
+
+![etc](kuvia/etc.png)
+
 /media/
+
+Tietokoneeseen liitetyt laitteet, kuten USB-tikut tai ulkoiset kovalevyt. Jos laite on liitettynä, kansiossa näkyy esimerkiksi /media/henri/USB_STICK. Kansio poistuu, kun laite irrotetaan. 
+
+
 /var/log/
 
-Näytä kuvaava esimerkki kunkin tärkeän kansion sisältämästä tiedostosta tai kansiosta. Jos kyseessä on tiedosto, näytä siitä kuvaava esimerkkirivi. Työskentele komentokehotteessa ja näytä komennot, joilla etsit esimerkit.
+Näyttää lokitiedostot, eli järjestelmän tapahtumat. Hyödyllinen esimerkiksi vianetsinnässä, kun voidaann tarkastella mitä komentoja aiemmin on jo ajettu.
 
+![varlog](kuvia/var_kansio.png)
+
+Kaikkiin kansioihin pääsee siirtymään helposti komennolla _cd kansio_, esimerkiksi cd/media/.
 
 
 ### Grep
@@ -86,28 +113,47 @@ Kuvan esimerkissä etsitään tiedostosta "kotka" -tekstiä ja optio -c palautta
 
 Putkilla on mahdollista yhdistää useita komentoja niin, että aiempi komento ketjuttuu seuraavaan. Komentorivillä putki merkataan | -merkillä.
 
-komento1 | komento2 | komento3
+Perusmuodossaan toiminto on siis _komento1 | komento2 | komento3_
 
 ![pipes](kuvia/pipe_esimerkki.png)
 
 Kyseisessä komennossa siis kirjoitetaan tiedostoon "tiedosto.txt", etsitään sieltä kaikki "koira" teksti ja korvataan kaikki "koira" teksti "kissalla". 
 
+<br>
+
+### Rauta
+
+Aloitin koneen raudan testaamisen asentamalla lshw:n komennolla _sudo apt install lshw_. lshw tarkoittaa list hardware, eli se mmuodostaa laitteistoyhteenveto.
+
+Komennolla _sudo lshw -short -sanitize_ tulostui yhteenveto, jossa -short optio tiivistää tiedot ja -sanitize poistaa sarjanumerot.
+
+![rauta](kuvia/rauta_testi.png)
+
+H/W path kertoo laitteen sijainnin laitepuussa, Device laitteen nimeen, Class luokan ja Description laitteen kuvauksen.
+
+Yhteenvedosta selviää
+  - Järjestelmä (VirtualBox)
+  - Muisti (BIOS 4Gt RAM)
+  - Suoritin (Intel Core i5)
+  - Tallennustila (53Gt virtuaalinen kovalevy)
+  - Näyttö (Virtualinen näytönohjaain SVGA II Adapter)
+  - Verkko (Virtuaalinen verkkokortti)
+  - Oheislaitteet (Hiiri ja muut USB-laitteet)
+  - Ääni (Virtuaalinen äänikortti AC'97 Audio Controller)
+  - Syöttölaitteet (Näppäimistö, virtapainike, Sleep-painike, kaiuttimet)
+
+lshw -komento on hyödyllinen laitteiston tarkastamisessa. Sen avulla on helppo selvittää, millainen laitteisto testaaamisessa on käytössä. Vianetsinnässä voidaan tarkastella, aiheuttaako jokin mahdollisesti raudassa ongelmia ja se on myös hyödyllinen työkalu asioiden dokumentoinnissa, jotta saadaan tietoon millaisella alustalla toimitaan.
 
 
 
-###Rauta
-
-Aloitin koneen raudan testaamisen asentamalla lshw:n komennolla _sudo apt install lshw_. 
-Listaa testaamasi koneen rauta (‘sudo lshw -short -sanitize’). Asenna lshw tarvittaessa. Selitä ja analysoi listaus.
-
-
-
-
-g) Vapaaehtoinen: Valitse muutama rivi lokeista. Tulkitse ja analysoi.
-h) Vapaaehtoinen: Asenna jokin plugin micro-editorille ja kokeile sitä. Vaikkapa palettero, cheat tai runit.
 
 ### Lähteet
-https://terokarvinen.com/linux-palvelimet/#h1-oma-linux. Tehtävänanto h2_Komentaja_Pingviini. 
-https://terokarvinen.com/2020/command-line-basics-revisited/?fromSearch=command%20line%20basics%20revisited. Karvinen, T. Command Line Basics Revisited artikkeli.
-https://www.geeksforgeeks.org/linux-unix/piping-in-unix-or-linux/. Piping in Unix and Linux. 2024.
-https://www.redhat.com/en/blog/introduction-tmux-linux. Geradi, R. A beginnner's guide to tmux. 2022.X¢
+Tehtävänanto h2_Komentaja_Pingviini. https://terokarvinen.com/linux-palvelimet/#h1-oma-linux. 
+Karvinen, T. Command Line Basics Revisited artikkeli. https://terokarvinen.com/2020/command-line-basics-revisited/?fromSearch=command%20line%20basics%20revisited.
+<br>
+Piping in Unix and Linux. 2024. https://www.geeksforgeeks.org/linux-unix/piping-in-unix-or-linux/. 
+
+Geradi, R. A beginnner's guide to tmux. 2022. https://www.redhat.com/en/blog/introduction-tmux-linux. 
+Understanding Linux Directory Structure — A Beginner-Friendly Guide. Pinapatruni, K. 2025. 
+
+https://medium.com/@kirann.bobby/understanding-linux-directory-structure-a-beginner-friendly-guide-9df45d460600. 
