@@ -1,5 +1,9 @@
 ## h2_Komentaja Pingviini
 
+Tekijä: Henri Äikäs
+Kurssi: Linux Palvelimet ICI003AS2A-3016
+Päivämäärä: 25.1.2016
+
 ### Command Line 
 Tero Karvisen _Command Line basic revisited_ -artikkeli vuodelta 2020 kertoo, että jo ennen internetin syntyä käytössä ollut komentorivi on nopea ja käytännöllinen työkalu. 
 
