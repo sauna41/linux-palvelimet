@@ -12,6 +12,8 @@ Apache mahdollistaa useamman verkkotunnuksen käytön yhdellä IP-osoitteella.
   $ sudo apt-get -y install apache2
   $ echo "Default"|sudo tee /var/www/html/index.html
 
+
+
     
 
 
