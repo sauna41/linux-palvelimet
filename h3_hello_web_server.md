@@ -116,6 +116,8 @@ Validointi tänne
 
 f) Anna esimerkit 'curl -I' ja 'curl' -komennoista. Selitä 'curl -I' muutamasta näyttämästä otsakkeesta (response header), mitä ne tarkoittavat.
 
+curl -työkalu ottaa yhteyttä palvelimeenn ja vastaanottaa siltä dataa. curl ei renderöi webbisivuja vaan palauttaa niiltä raakadataa. Sen avulla voidaan esimerkiksi testata vastaako webbisivu, ladata tai lähettää tiedostaja tai debugata verkkoyhteyksiä. 
+
 
 
 m) Vapaaehtoinen, suosittelen tekemään: Hanki GitHub Education -paketti.
