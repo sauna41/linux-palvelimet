@@ -193,7 +193,7 @@ Sivusto aktivoitii ja ladattiin Apache uudelleen.
     sudo a2ensite sauna41.conf
     sudo systemctl reload apache2
 
-Navigoitiin selaimessa palvelimen IP-osoitteeseen. Web-sivu lataantui normaalisti, joka todisti, että määritykset ja palvelin toimivat niin kuin oli tarkoitettu.
+Navigoitiin selaimessa palvelimen IP-osoitteeseen. Web-sivu lataantui normaalisti, joka todisti, että määritykset ja palvelin toimivat niin kuin oli tarkoitettu. Sivu toimi myös puhelimella kokeiltuna. HTML -tiedostoon ei oltu kuitenkaan vielä määritetty mobiilille sopivia asetuksia, joten visuaalisesti webbi-sivu puhelimella ei ollut vielä tässä kohtaa helppokäyttöinen. 
 
 ![toimiva_sivu](kuvia/sauna41_SIVU.png)
 
