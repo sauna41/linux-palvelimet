@@ -9,11 +9,14 @@ Päivämäärä: 4.2.2025
 <br>
 <br>
 
-Tämä raportti on osa Haaga-Helian Linux Palvelimet kurssia keväällä 2026. Opettajana toimii Tero Karvinen. 
+Tämä raportti on osa Haaga-Helian Linux Palvelimet kurssia keväällä 2026.Tehtävänanto on h4 Maailma kuulee. Opettajana toimii Tero Karvinen. 
+
 ## h4 Maailma kuulee
 
 ### tiivistys
-tiivistys tänne
+Luin Susanna Lehdon vuonna 2022 kirjoittaman "Teorista käytäntöön pilvipalvelimen avulla (h4)". Siinä Lehto vuokrasi käyttöönsä uuden pilvipalvelimen DigitalOceanissa. Käytän itse tässä dokumentaatiossa Upcloudin vastaavanlaista palvelua. Domain nimeä en itse vielä tässä vaiheessa hankkinut. Lehto kytkee palvelimelle palomuurin päälle, luo palvelimelle käyttäjän ja luo kotisivut. 
+
+Tero Karvisen "First Steps on a New Virtual Private Server – an Example on DigitalOcean and Ubuntu 16.04 LTS" artikkelissa Karvinen on listannut lyhyesti ensiaskeleet uuden virtuaalipalvelimen ja DNS määrittelyyn. Käytän myöhemmin tässä raportissa samoja komentorivityökaluja kun mitä Karvinen on maininnut. Karvinen painottaa hyvien salasanojen käyttöä joka tilanteessa.
 
 ________________________________________________________________________________________________________________________________________________________________________________________
 
@@ -147,9 +150,11 @@ Muokkasin HTML-sivua. Loin testisivusta varmuuskopion kopioimalla vanhan index.H
     cd /var/www/html
     sudo mv index.html index.html.bak 
 
-Muokkasin HTML-tiedostosta oikeaoppisen.
+Muokkasin HTML-tiedostosta oikeaoppisen, eli varmistin, että tiedostossa on oikeaoppiset elementit.
 
     sudo nano index.html
+
+________________________________________________________________________________________________________________________________________________________________________________________
 
 
 Seuraavaksi luotiin uusi Name Based Virtual Host, jotta sivustoa voi hostata useampaa sivua samalla IP-osoitteella. Aluksi luotiin uusi hakemisto sivustolle.
