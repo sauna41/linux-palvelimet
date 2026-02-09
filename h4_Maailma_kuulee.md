@@ -65,7 +65,7 @@ UFW jouduttiin siis ensin asentamaan ja sen jälkeen kytkemään päälle.
     ufw enable -y
     ufw status
     
-![ufw](kuvat/ufwStatus.png)
+![ufw](kuvia/ufwstatus.png)
 
 Tämä siis mahdollisti TCP-liikenteen portin 22 kautta. SSH käyttää oletuksenaan porttia 22. 
 
@@ -123,7 +123,7 @@ Kun uusi käyttäjä saatiin luotua, oli aika lukita root -käyttäjän kirjautu
 
 Configista etsittiin _PermitRootLogin_ yes --> no. Tallennettin ja käynnistettiin SSH uudelleen.
 
-![rootpermit](kuvia/ROOTPERMIT.PNG)
+![rootpermit](kuvia/permitRootLoginNO.PNG)
 
 root-käyttäjän lukitus varmistettiin yrittämällä kirjautumalla palvelimelle root-käyttäjänä.
 
