@@ -1,27 +1,29 @@
-Kurssi: Linux palvelimet ICI003AS2A-3016
+_Kurssi: Linux palvelimet ICI003AS2A-3016_
 
-Tekijä: Henri Äikäs
+_Tekijä: Henri Äikäs_
 
-Alusta: Intel i5 Macbook Pro MacOs Sequaoia 15.7.2 / Debian 13 trixie (VirtualBox)
+_Alusta: Intel i5 Macbook Pro MacOs Sequaoia 15.7.2 / Debian 13 trixie (VirtualBox)_
 
-Päivämäärä: 4.2.2025
+_Päivämäärä: 4.2.2025_
 
 <br>
-<br>
 
-Tämä raportti on osa Haaga-Helian Linux Palvelimet kurssia keväällä 2026.Tehtävänanto on h4 Maailma kuulee. Opettajana toimii Tero Karvinen. 
+_Tämä raportti on osa Haaga-Helian Linux Palvelimet kurssia keväällä 2026.Tehtävänanto on h4 Maailma kuulee. Opettajana toimii Tero Karvinen._
+
+________________________________________________________________________________________________________________________________________________________________________________________
+
 
 ## h4 Maailma kuulee
 
-### tiivistys
-Luin Susanna Lehdon vuonna 2022 kirjoittaman "Teorista käytäntöön pilvipalvelimen avulla (h4)". Siinä Lehto vuokrasi käyttöönsä uuden pilvipalvelimen DigitalOceanissa. Käytän itse tässä dokumentaatiossa Upcloudin vastaavanlaista palvelua. Domain nimeä en itse vielä tässä vaiheessa hankkinut. Lehto kytkee palvelimelle palomuurin päälle, luo palvelimelle käyttäjän ja luo kotisivut. 
+### 
+Luin Susanna Lehdon vuonna 2022 kirjoittaman "Teorista käytäntöön pilvipalvelimen avulla (h4)". Siinä Lehto vuokrasi käyttöönsä uuden pilvipalvelimen DigitalOceanissa. Käytän itse tässä dokumentaatiossa Upcloudin vastaavanlaista palvelua. Domain nimeä en itse vielä tässä vaiheessa hankkinut. Lehto kytkee palvelimelle palomuurin päälle, luo palvelimelle käyttäjän ja luo kotisivut. Suoritan itse tässä raportissa samoja askelia, mutta erona on, että oma palvelimeni on Upcloudilta ja kohtasin enemmän ongelmatilanteita. 
 
 Tero Karvisen "First Steps on a New Virtual Private Server – an Example on DigitalOcean and Ubuntu 16.04 LTS" artikkelissa Karvinen on listannut lyhyesti ensiaskeleet uuden virtuaalipalvelimen ja DNS määrittelyyn. Käytän myöhemmin tässä raportissa samoja komentorivityökaluja kun mitä Karvinen on maininnut. Karvinen painottaa hyvien salasanojen käyttöä joka tilanteessa.
 
 ________________________________________________________________________________________________________________________________________________________________________________________
 
 
-### Vuokraa oma virtuaalipalvelin haluamaltasi palveluntarjoajalta. (Vaihtoehtona voit käyttää ilmaista kokeilujaksoa, GitHub Education krediittejä; tai jos mikään muu ei onnistu, voit kokeilla ilmaiseksi vagrant:ia paikallisesti. Suosittelen kuitenkin harjoittelemaan oikeilla, tuotantoon kelpaavilla julkisilla palveluilla).
+### Virtuaalipalvelimen vuokraaminen
 
 Päädyin hankkimaan oman virtuaalipalvelimen Upcloudilta. Loin palveluun käyttäjän, vahvistin sähköpostini ja lisäsin maksukorttitietoni. Sivusto ei veloita tililtä mitään, ennen kuin palveluja käytetään. 
 
@@ -88,8 +90,10 @@ Loin uuden käyttäjäkohtaisen .ssh-hakemiston. Määritin käyttäjälle oikeu
     chown henri:henri /home/henri/.ssh
     nano /home/henri/.ssh/authorized_keys
 
+<br>
+<br>
 
-#### Kirjautumisongelma
+#### Kirjautumisongelmia
 
 Tämän jälkeen yritin kirjautua palvelimelle uudella henri -käyttäjällä. Tämä ei kuitenkaan toiminut, vaan sain "Permission denied (publickey). 
 
@@ -109,7 +113,9 @@ Kokeilin vielä paikallisesti suorittaa debuggauksen
 
 Debuggauksesta kävi ilmi, että SSH yritti tarjota kaikkia mahdollisia avaimia mutta serveri ei hyväksynyt niistä mitään. Tämä siis tarkoitti, että käyttäjän _authorized_keys_ oli todennäköisesti ongelmana. Vertasin palvelimelle lisättyä julkista SSH-avainta käyttäjän kansioon lisättyyn julkiseen SSH-avaimeen ja ne täsmäsivät. Ongelma ei siis ollut ainakaan se, että avaimet olisivat eri. Seuraavaksi koitin siis pakottaa oikeaksi todettua avainta:
 
+
     ssh -i ~/.ssh/id_ed25519.pub henri@IP-osoite
+    
 
 Sama ongelma jatkoi edelleen (permission denied). Yritin vielä useaan otteeseen varmistella, että käyttäjällä on oikeat oikeudet ja avaimet, palvelinasetukset ovat kohdallaan ja että komennot ovat oikein. Lopulta "luovutin" ongelman suhteen ja aloitin alusta. 
 
@@ -119,11 +125,15 @@ Loin kaiken alusta: laitoin uuden palvelimen pystyyn, loin uuden SSH-avaimen ja 
 
 Kun uusi käyttäjä saatiin luotua, oli aika lukita root -käyttäjän kirjautuminen SSH:lla. Avasin palvelimen asetukset:
 
+
     sudo nano /etc/ssh/sshd_config
+    
 
 Configista etsittiin _PermitRootLogin_ yes --> no. Tallennettin ja käynnistettiin SSH uudelleen.
 
-![rootpermit](kuvia/permitRootLoginNO.PNG)
+![rootpermit](kuvia/permitRootLoginNO.png)
+
+<br>
 
 root-käyttäjän lukitus varmistettiin yrittämällä kirjautumalla palvelimelle root-käyttäjänä.
 
@@ -167,21 +177,25 @@ Omistajaksi määriteltiin haluttu henri -käyttäjä. Näin käyttäjä kykenee
 
     sudo chown -R henri:henri /var/www/sauna41
 
-Luodaan uusi HTML testisivu
+Luotiin uusi HTML testisivu.
 
     nano /var/www/sauna41/index.html
 
-Conffataan uusi virtuaalihost Tässä siis määritellään mikä domain (ServerName) ohjaa mihin hakemistoon (DocumentRoot).
+Conffattiin uusi virtuaalihosti. Tässä siis määritellään mikä domain (ServerName) ohjaa mihin hakemistoon (DocumentRoot).
 
     sudo nano /etc/apache2/sites-available/sauna41.conf
 
 ServerName määrittää siis nimen, jolla sivusto näkyy. Tässä tapauksessa siis sauna41.local
 DocumentRoot määrittää hakemiston, missä HTML tiedostot sijaitsevat.
 
-Aktivoidaan sivusto ja ladataan Apache uudelleen. 
+Sivusto aktivoitii ja ladattiin Apache uudelleen. 
 
     sudo a2ensite sauna41.conf
     sudo systemctl reload apache2
+
+Navigoitiin selaimessa palvelimen IP-osoitteeseen. Web-sivu lataantui normaalisti, joka todisti, että määritykset ja palvelin toimivat niin kuin oli tarkoitettu.
+
+![toimiva_sivu](kuvia/sauna41_SIVU.png)
 
 
 ________________________________________________________________________________________________________________________________________________________________________________________
