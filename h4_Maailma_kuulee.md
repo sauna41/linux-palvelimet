@@ -4,7 +4,7 @@ _Tekijä: Henri Äikäs_
 
 _Alusta: Intel i5 Macbook Pro MacOs Sequaoia 15.7.2 / Debian 13 trixie (VirtualBox)_
 
-_Päivämäärä: 4.2.2025_
+_Päivämäärä: 4.2.2026_
 
 <br>
 
