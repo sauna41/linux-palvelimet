@@ -122,7 +122,7 @@ ________________________________________________________________________________
 
 Viimeisenä tehtävänä oli suorittaa kurssin aiempien toteuksien laboratioharjoitus. Tarkkaa harjoitusta ei ollut määritetty, joten Googlesta etsimällä löysin "Final Lab for Linux Palvelimet 2023" -harjoituksen. Harjoitus oli moniosainen, joista osa oli tältä kurssilta tuttua ja osa täysin uutta. Sovelsin harjoitusta niiltä osin, mitä tällä kurssilla ei oltu käsitelty.
 
-**d) hey **
+**d) hey**
 
 Tehtävänä oli luoda komento, jota kaikki käyttäjät voivat hyödyntää hyödyllisen informaation tulostamiseen. Tehtävä oli hyvin samankaltainen, kuin tässä raportissa aiemmin suoritettu "update" skriptin luonti.
 
@@ -170,6 +170,26 @@ Hey -skripti tulostaa käyttäjälle nyt päivämäärän ja ajan, käyttäjän,
 **1000x nano**
 
 Seuraavassa tehtävässä tuli asentaa micro editoriin jokin vapaavalintainen plugin. Tehtävänanto oli sama, kuin minkä olin suorittanut aiemmin kurssilla. Silloin asensin runit -pluginin, joka mahdollisti skriptin ajamisen suoraan tekstieditorista. Asennuksesta ja käytöstä voi lukea lisää toisesta raportista h8 bonus: [linkki raporttiin](https://github.com/sauna41/linux-palvelimet/blob/main/h8_bonus.md#h2-plugin-micro-editorille). 
+
+**f) Staattisesti sinun**
+
+Tarkoituksena oli luoda käyttäjä Erkki Esimerkki ja luoda hänelle apache2 webbisivulle etusivu näkyviin. Apache oli luonnollisesti jo valmiiksi asennettu ja käytössä, joten tehtävä aloitettiin sen sijaan Erkin luomisella, komennolla
+
+        sudo adduser erkki
+
+Erkille määritettiin salasana "Esimerkki123", jonka jälkeen käyttäjä oli valmiina. Jotta Apachen pääkonfiguraatioita ei tarvinnut muokata jokaiselle uudelle käyttäjälle, käytettiin userdir -työkalua. Tällöin Apache tietää, kenelle käyttäjälle localhost -osoite tulee ohjata.
+
+        sudo a2enmod userdir
+        sudo systemctl restart apache2
+
+Erkille luotiin uusi public_html -hakemisto, jonne etusivun .html sijoitettiin. Erkki sai myös hakemistoon tarvittavat oikeudet. 
+
+        sudo chown -R erkki:erkki /home/erkki/public_html
+        sudo chmod 755 /home/erkki
+        sudo chmod 755 /home/erkki/public_html
+
+
+![erkki](kuvia/erkki.png)
 
 ### Lähteet
 
