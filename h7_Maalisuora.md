@@ -24,11 +24,11 @@ Valitsin kieliksi C:n, Pythonin ja Bashin.
 
 #### C
 
-Luodaan uusi skripti. 
+Loin uuden .c -tiedoston
 
     nano heimaailma.c
 
-Kirjoitetaan skripti
+Kirjoitin tiedostoon skriptin toiminnan.
 
     #include <stdio.h>
     int main() {
@@ -36,7 +36,7 @@ Kirjoitetaan skripti
         return 0;
     }
 
-Käännetään ohjelma
+Ohjelma täytyi kääntää, jotta se olisi ajettava
 
     gcc -o heimaailma heimaailma.c
 
@@ -44,7 +44,7 @@ Käännetään ohjelma
 - o heimaailma luo suoritettavan tiedoston nimeltään heimaailma
 - heimaailma.c toimii lähdekoodina
 
-Ajetaan ohjelma
+Ohjelma ajettiin ja se tulosti halutun tekstin
 
     ./heimaailma.c
 
@@ -80,7 +80,48 @@ Ajoin lopulta skriptin komennolla
 ![bash](kuvia/heimaailma.sh.png)
 
 
+________________________________________________________________________________________________________________________________________________________________________________________
+
+## Oma skripti
+
+Tehtävänä oli luoda uusi, itse tekemä komento, jota kaikki koneen käyttäjät voisivat hyödyntää. Komento sai olla vapaavalintainen. Linuxin aktiivinen päivittäminen on tärkeää ja se tulee tehtyä joka kerta kun konetta käyttää. Päätinkin siis luoda ohjelman, joka tarkistaa päivitykset, asentaa ne ja poistaa vanhat, turhat paketit kaikki kerralla.
+
+Aloitin luomalla uuden tiedoston. Jotta komento olisi kaikille saatavilla, oli tärkeää luoda skripti oikeaan hakemistoon. Käytin /usr/local/bin -hakemistoa, jotta se se tulisi käyttöön kaikille käyttäjille.
+
+        sudo nano /usr/local/bin/update
+
+Kirjoitin tiedostoon päivitysten hakemisen, asentamisen ja turhuuksien poistamisen
+
+        #!/bin/bash
+
+        echo "Päivitetään pakettilista..."
+        sudo apt update
+        
+        echo
+        echo "Asennetaan päivitykset..."
+        sudo apt upgrade -y
+        
+        echo
+        echo "Poistetaan turhat paketit..."
+        sudo apt autoremove -y
+        
+        echo
+        echo "Päivitys valmis."
+
+Skriptistä piti tämän jälkeen vielä tehdä suoritettava. Se tapahtui lisäämällä siihen käyttöikeudet komennolla
+
+        sudo chmod +x /usr/local/bin/update
+
+Nyt uusi komento oli käytettävissä
+
+![update](kuvia/update.png)
+
 ### Lähteet
 
 Karvinen, T. Linux Palvelimet. Luettavissa https://terokarvinen.com/linux-palvelimet/#h5-nimekas. Luettu 4.3.2026.
 
+Karvinen, T. Final Lab for Linux Palvelimet 2023. Luettavissa: https://terokarvinen.com/2023/linux-palvelimet-2023-arvioitava-laboratorioharjoitus/. Luettu 8.3.2026.
+
+Karvinen, T. Django introduction. MDN Web Docs. Luettavissa: https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Server-side/Django/Introduction. Luettu 8.3.2026.
+
+Karvinen, T. Django Tutorial. Luettavissa: https://www.geeksforgeeks.org/python/django-tutorial/. Luettu 8.3.2026. 
