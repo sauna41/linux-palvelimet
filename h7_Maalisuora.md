@@ -79,8 +79,10 @@ Ajoin lopulta skriptin komennolla
 
 ![bash](kuvia/heimaailma.sh.png)
 
-
 ________________________________________________________________________________________________________________________________________________________________________________________
+
+
+
 
 ## Oma skripti
 
@@ -118,7 +120,10 @@ Nyt uusi komento oli käytettävissä
 
 ________________________________________________________________________________________________________________________________________________________________________________________
 
-### Vanha laboratioharjoitus
+
+
+
+## Vanha laboratioharjoitus
 
 Viimeisenä tehtävänä oli suorittaa kurssin aiempien toteuksien laboratioharjoitus. Tarkkaa harjoitusta ei ollut määritetty, joten Googlesta etsimällä löysin "Final Lab for Linux Palvelimet 2023" -harjoituksen. Harjoitus oli moniosainen, joista osa oli tältä kurssilta tuttua ja osa täysin uutta. Sovelsin harjoitusta niiltä osin, mitä tällä kurssilla ei oltu käsitelty.
 
@@ -243,7 +248,7 @@ Seuraavat kaksi tehtävää keskittyivät Django kehitysympäristöön. Djangoa 
 
 Django on Python pohjainen web-sovelluskehys, joka mahdollistaa verkkosovellusten nopean, turvallisen ja ylläpidettävän kehittämisen. Se tarjoaa erilaisia valmiita työkaluja, kuten käyttäjähallinnan, tietokantayhteyksiä ja hallintapaneelin kehittäjän käyttöön.(MDN Web Docs.)
 
-Django hyödyntää MTV (Model, View, Template) mallia, jossa tietokannoissa olevaa data esitetään kehittäjän toivomalla tavalla (Model), käyttäjänäkymä on halutunlainen (View) ja tekstitiedosto (esim. HTML) määrittää verkkosivun rakenteen ja logiikan.
+Django hyödyntää MTV (Model, View, Template) mallia, jossa tietokannoissa olevaa data esitetään kehittäjän toivomalla tavalla (Model), käyttäjänäkymä on halutunlainen (View) ja tekstitiedosto (esim. HTML) määrittää verkkosivun rakenteen ja logiikan (Geeks For Geeks).
 
 ________________________________________________________________________________________________________________________________________________________________________________________
 
@@ -253,6 +258,6 @@ Karvinen, T. Linux Palvelimet. Luettavissa https://terokarvinen.com/linux-palvel
 
 Karvinen, T. Final Lab for Linux Palvelimet 2023. Luettavissa: https://terokarvinen.com/2023/linux-palvelimet-2023-arvioitava-laboratorioharjoitus/. Luettu 8.3.2026.
 
-Karvinen, T. Django introduction. MDN Web Docs. Luettavissa: https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Server-side/Django/Introduction. Luettu 8.3.2026.
+Django introduction. MDN Web Docs. Luettavissa: https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Server-side/Django/Introduction. Luettu 8.3.2026.
 
-Karvinen, T. Django Tutorial. Luettavissa: https://www.geeksforgeeks.org/python/django-tutorial/. Luettu 8.3.2026. 
+Django Tutorial. Geeks For Geeks. Luettavissa: https://www.geeksforgeeks.org/python/django-tutorial/. Luettu 8.3.2026. 
