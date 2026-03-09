@@ -188,8 +188,64 @@ Erkille luotiin uusi public_html -hakemisto, jonne etusivun .html sijoitettiin. 
         sudo chmod 755 /home/erkki
         sudo chmod 755 /home/erkki/public_html
 
+Nyt Erkin etusivu oli paikallisesti toiminnassa. Se testattiin vierailemalla osoitteessa _http://localhost/~erkki/_
 
 ![erkki](kuvia/erkki.png)
+
+
+**f) Salattua hallintaa**
+
+Tehtävänanto oli asentaa SSH-palvelin, luoda uusi käyttäjä ja automatisoida SSH-kirjautuminen niin, ettei salasanaa tarvita. Kun yhteys oli saatu toimimaan, tuli vielä vaihtaa palvelin kuuntelemaan liikennettä portti 1337 kautta.
+
+Aloitettiin asentamalla SSH-palvelin
+
+        sudo apt install openssh-server
+
+Loin uuden testikäyttäjän "labra01"
+
+        sudo adduser labra01
+
+Kirjaudun uudella käyttäjällä sisään ja generoin tälle SSH-avainparin
+
+        sudo su - labra01
+
+        ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa
+
+Komento loi uuden julkisen ja yksityisen avaimen. Seuraavaksi sallittiin salaamaton SSH-kirjautuminen. 
+
+        mkdir -p ~/.ssh
+        cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+        chmod 700 ~/.ssh
+        chmod 600 ~/.ssh/authorized_keys
+
+
+Kokeiltiin kirjautumista
+
+        ssh -i ~/.ssh/id_rsa localhost
+
+![labra](kuvia/labra01.png)
+
+<br>
+
+Kirjautuminen onnistui, eikä salasanaa kyselty. Lopuksi vaihdettiin vielä SSH-palvelin kuuntelemaan porttia 1337 avaamalla sshd konfiguraatio
+
+        sudo nano /etc/ssh/sshd_config
+
+Konfiguraatiosta etsittin "#Port 22" ja se vaihdettiin "Port 1337"
+
+![port](kuvia/port.png)
+
+<br>
+
+**Tehtävät h & i**
+
+Seuraavat kaksi tehtävää keskittyivät Django kehitysympäristöön. Djangoa ei käsitelty tämän kurssin aikana, joten en lähtenyt suorittamaan näitä kyseisiä tehtäviä. Perehdyin kuitenkin itsenäisesti Djangoon teoriassa. 
+
+Django on Python pohjainen web-sovelluskehys, joka mahdollistaa verkkosovellusten nopean, turvallisen ja ylläpidettävän kehittämisen. Se tarjoaa erilaisia valmiita työkaluja, kuten käyttäjähallinnan, tietokantayhteyksiä ja hallintapaneelin kehittäjän käyttöön.(MDN Web Docs.)
+
+Django hyödyntää MTV (Model, View, Template) mallia, jossa tietokannoissa olevaa data esitetään kehittäjän toivomalla tavalla (Model), käyttäjänäkymä on halutunlainen (View) ja tekstitiedosto (esim. HTML) määrittää verkkosivun rakenteen ja logiikan.
+
+________________________________________________________________________________________________________________________________________________________________________________________
 
 ### Lähteet
 
