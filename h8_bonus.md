@@ -17,7 +17,7 @@ Tässä raportissa on kurssin aikana suorittamani bonustehtävät. Tehtävät ov
 
 Valitsin _htop_ komentoriviohjelman. htop näyttää kaikki käynnissä olevat prosessit reaaliaikaisesti. Sitä voidaan hyödyntää CPU:n ja RAMin tarkkailussa ja käynnissä olevia prosesseja voidaan järjestellä tai tappaa. 
 
-[htop](kuvia/htop.png)
+![htop](kuvia/htop.png)
 
 htop -näkymässä näkymää tulkittuna:
 
