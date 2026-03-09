@@ -51,7 +51,7 @@ Loin uuden Python-tiedosto ja kirjoitin sinne tulostuksen.
 
 Ctrl + E saatiin auki Micro:n komentorivi. Kirjoittamalla komentoriville runit, plugin ajaa Python ohjelman suoraan tekstieditorista komentoriville.
 
-[runit](kuvia/runit.png)
+![runit](kuvia/runit.png)
 
 ________________________________________________________________________________________________________________________________________________________________________________________
 
