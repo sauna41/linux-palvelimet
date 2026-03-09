@@ -171,8 +171,10 @@ Aloitin jälleen luomalla "hey" tiedoston kaikkien käyttäjien saatavilla oleva
 
 Hey -skripti tulostaa käyttäjälle nyt päivämäärän ja ajan, käyttäjän, koneen nimen, IP-osoitteen ja koneen käyttöajan.
 
+<br>
+<br>
 
-**1000x nano**
+**e) 1000x nano**
 
 Seuraavassa tehtävässä tuli asentaa micro editoriin jokin vapaavalintainen plugin. Tehtävänanto oli sama, kuin minkä olin suorittanut aiemmin kurssilla. Silloin asensin runit -pluginin, joka mahdollisti skriptin ajamisen suoraan tekstieditorista. Asennuksesta ja käytöstä voi lukea lisää toisesta raportista h8 bonus: [linkki raporttiin](https://github.com/sauna41/linux-palvelimet/blob/main/h8_bonus.md#h2-plugin-micro-editorille). 
 
