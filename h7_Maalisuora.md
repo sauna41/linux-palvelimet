@@ -116,6 +116,61 @@ Nyt uusi komento oli käytettävissä
 
 ![update](kuvia/update.png)
 
+________________________________________________________________________________________________________________________________________________________________________________________
+
+### Vanha laboratioharjoitus
+
+Viimeisenä tehtävänä oli suorittaa kurssin aiempien toteuksien laboratioharjoitus. Tarkkaa harjoitusta ei ollut määritetty, joten Googlesta etsimällä löysin "Final Lab for Linux Palvelimet 2023" -harjoituksen. Harjoitus oli moniosainen, joista osa oli tältä kurssilta tuttua ja osa täysin uutta. Sovelsin harjoitusta niiltä osin, mitä tällä kurssilla ei oltu käsitelty.
+
+**d) hey **
+
+Tehtävänä oli luoda komento, jota kaikki käyttäjät voivat hyödyntää hyödyllisen informaation tulostamiseen. Tehtävä oli hyvin samankaltainen, kuin tässä raportissa aiemmin suoritettu "update" skriptin luonti.
+
+Aloitin jälleen luomalla "hey" tiedoston kaikkien käyttäjien saatavilla olevaan hakemistoon
+
+        sudo nano /usr/local/bin/hey
+        
+
+        #!/bin/bash
+
+        echo "===== Tervetuloa Linuxiin! ====="
+        echo
+        
+        echo "Päivämäärä ja aika:"
+        date
+        echo
+        
+        echo "Käyttäjä:"
+        whoami
+        echo
+        
+        echo "Koneen nimi:"
+        hostname
+        echo
+        
+        echo "IP-osoitteet:"
+        hostname -I
+        echo
+        
+        echo "Käyttöaika:"
+        uptime
+        echo
+
+
+        sudo chmod +x /usr/local/bin/hey
+
+
+
+![hey](kuvia/hey.png)
+
+
+Hey -skripti tulostaa käyttäjälle nyt päivämäärän ja ajan, käyttäjän, koneen nimen, IP-osoitteen ja koneen käyttöajan.
+
+
+**1000x nano**
+
+Seuraavassa tehtävässä tuli asentaa micro editoriin jokin vapaavalintainen plugin. Tehtävänanto oli sama, kuin minkä olin suorittanut aiemmin kurssilla. Silloin asensin runit -pluginin, joka mahdollisti skriptin ajamisen suoraan tekstieditorista. Asennuksesta ja käytöstä voi lukea lisää toisesta raportista h8 bonus: [linkki raporttiin](https://github.com/sauna41/linux-palvelimet/blob/main/h8_bonus.md#h2-plugin-micro-editorille). 
+
 ### Lähteet
 
 Karvinen, T. Linux Palvelimet. Luettavissa https://terokarvinen.com/linux-palvelimet/#h5-nimekas. Luettu 4.3.2026.
