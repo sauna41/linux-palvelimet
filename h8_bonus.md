@@ -100,3 +100,44 @@ Nyt toteutusta voitiin kokeilla selaimessa.
 Eli nyt host-tiedosto ohjaa domain  nimen samaan IP-osoitteeseen, Apachen VirtualHost tarkistaa domain-nimen ja Apache valitsee oikean rootkansion. Lopuksi palvelin sivun. 
 
 
+________________________________________________________________________________________________________________________________________________________________________________________
+
+## h4 Maailma kuulee
+
+Seuraavaksi luotiin uusi Name Based Virtual Host, jotta sivustoa voi hostata useampaa sivua samalla IP-osoitteella. Aluksi luotiin uusi hakemisto sivustolle.
+
+Aloitettiin luomalla hakemisto uudelle sivustolle, johon sijoitetaan HTML, CSS, jne. 
+
+    sudo mkdir -p /var/www/sauna41
+
+Omistajaksi määriteltiin haluttu henri -käyttäjä. Näin käyttäjä kykenee muokkaamaan sivuja ilman sudo-oikeuksia. 
+
+    sudo chown -R henri:henri /var/www/sauna41
+
+Luotiin uusi HTML testisivu.
+
+    nano /var/www/sauna41/index.html
+
+Conffattiin uusi virtuaalihosti. Tässä siis määritellään mikä domain (ServerName) ohjaa mihin hakemistoon (DocumentRoot).
+
+    sudo nano /etc/apache2/sites-available/sauna41.conf
+
+ServerName määrittää siis nimen, jolla sivusto näkyy. Tässä tapauksessa siis sauna41.local
+DocumentRoot määrittää hakemiston, missä HTML tiedostot sijaitsevat.
+
+Sivusto aktivoitii ja ladattiin Apache uudelleen. 
+
+    sudo a2ensite sauna41.conf
+    sudo systemctl reload apache2
+
+Navigoitiin selaimessa palvelimen IP-osoitteeseen. Web-sivu lataantui normaalisti, joka todisti, että määritykset ja palvelin toimivat niin kuin oli tarkoitettu. Sivu toimi myös puhelimella kokeiltuna. HTML -tiedostoon ei oltu kuitenkaan vielä määritetty mobiilille sopivia asetuksia, joten visuaalisesti webbi-sivu puhelimella ei ollut vielä tässä kohtaa helppokäyttöinen. 
+
+![toimiva_sivu](kuvia/sauna41_SIVU.png)
+
+________________________________________________________________________________________________________________________________________________________________________________________
+
+
+
+
+
+
